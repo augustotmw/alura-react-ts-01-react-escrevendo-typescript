@@ -4,25 +4,27 @@ import styles from './tasks.module.scss';
 import TasksChrono from "../components/TasksChrono";
 import {useState} from "react";
 import {ITask} from "./tasks.interface";
+import {convertStringToMiliseconds} from "../../../shared/services/time";
 
 function Tasks() {
     const [tasks, setTasks] = useState<ITask[]>([]);
 
-    const [selected, setSelected] = useState<ITask | null>(null);
+    const [time, setTime] = useState<number>(0);
 
     const selectTask = (selected: ITask | null) => {
-        setSelected(selected);
         setTasks(tasks => tasks.map(task => ({
             ...task,
             selected: Boolean(selected?.id === task.id  && selected?.selected)
-        })))
+        })));
+
+        setTime(convertStringToMiliseconds(selected?.selected && selected?.time ? selected?.time : ''));
     }
 
     return (
         <section className={styles.TasksStyle}>
             <TasksForm { ...{setTasks} } />
             <TasksList { ...{tasks, selectTask} } />
-            <TasksChrono />
+            <TasksChrono { ...{time} } />
         </section>
     )
 }

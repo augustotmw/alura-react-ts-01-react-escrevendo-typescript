@@ -1,16 +1,17 @@
 import styles from './tasksChronoClock.module.scss';
+import {ITasksChronoClock} from "./tasksChronoClock.interfaces";
+import {convertMilisecondsToString} from "../../../../shared/services/time";
 
-export default function TasksChronoClock() {
+export default function TasksChronoClock({ time = 0 }: ITasksChronoClock) {
     return (
         <>
-            <span className={styles.clockNumber}>0</span>
-            <span className={styles.clockNumber}>0</span>
-            <span className={styles.clockDivider}>:</span>
-            <span className={styles.clockNumber}>0</span>
-            <span className={styles.clockNumber}>0</span>
-            <span className={styles.clockDivider}>:</span>
-            <span className={styles.clockNumber}>0</span>
-            <span className={styles.clockNumber}>0</span>
+            {
+                convertMilisecondsToString(time)
+                    .split('')
+                    .map((str:string, index:number)=> (<span key={index} className={
+                        isNaN(Number(str)) ? styles.clockDivider : styles.clockNumber
+                    }>{str}</span>))
+            }
         </>
     )
 }

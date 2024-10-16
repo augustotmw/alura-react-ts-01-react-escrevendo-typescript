@@ -61,7 +61,7 @@ export class TasksForm extends React.Component<ITaskForm, any> {
                         type="time"
                         name="taskTime"
                         step="1"
-                        min="00:01:00"
+                        min="00:00:01"
                         max="04:30:00"
                         value={this.state.time}
                         onChange={this.onChangeTime}
