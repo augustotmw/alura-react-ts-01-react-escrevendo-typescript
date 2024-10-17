@@ -1,5 +1,5 @@
 import styles from './tasksChrono.module.scss';
-import {AppButton} from "../../../../shared/components/AppButton";
+import AppButton from "../../../../shared/components/AppButton";
 import TasksChronoClock from "../TasksChronoClock";
 import {ITasksChrono} from "./tasksChrono.interfaces";
 

@@ -1,4 +1,4 @@
-import {TasksForm} from "../components/TasksForm";
+import TasksForm from "../components/TasksForm";
 import TasksList from "../components/TasksList";
 import styles from './tasks.module.scss';
 import TasksChrono from "../components/TasksChrono";
@@ -29,6 +29,7 @@ function Tasks() {
                 ))
             ]);
             setSelected(null);
+            setTime(0);
         }
     }, [selected, tasks]);
 

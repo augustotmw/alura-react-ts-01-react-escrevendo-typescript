@@ -1,15 +1,8 @@
-import React from "react";
 import styles from './appButton.module.scss';
 import {AppButtonProps} from "./appButton.interfaces";
 
+const AppButton = ({ type = 'button', onClick = ()=>{}, children}: AppButtonProps) => (
+    <button {...{type, onClick} } className={styles.btn}>{ children }</button>
+)
 
-export class AppButton extends React.Component<AppButtonProps, {}> {
-
-    render() {
-        const { type = 'button', onClick = ()=>{}} = this.props;
-
-        return (
-            <button {...{type, onClick} } className={styles.btn}>{ this.props.children }</button>
-        );
-    }
-}
+export default AppButton;

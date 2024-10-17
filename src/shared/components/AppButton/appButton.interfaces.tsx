@@ -1,6 +1,6 @@
 export interface AppButtonProps {
-    children?: any;
+    children?: React.ReactNode;
     label?: string;
     type?: 'button' | 'submit' | 'reset';
-    onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void
+    onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
 }
