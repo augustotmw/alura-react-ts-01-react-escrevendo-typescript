@@ -2,7 +2,7 @@
   background-color: #4D4D4D;
   border-radius: 8px;
   box-shadow: 2px 4px 4px #0000009F;
-  padding: 12px;
+  padding: 16px 12px 12px 12px;
   margin-bottom: 8px;
   position: relative;
   cursor: pointer;
@@ -35,17 +35,21 @@
     background-color: #566F42;
     cursor: auto;
 
-    .icon-completed {
+    &:before {
+      content: '';
+      position: absolute;
       display: block;
       background-image: url('../../../../assets/imgs/check-mark.svg');
       background-repeat: no-repeat;
       background-size: 38px 38px;
-      position: absolute;
       top: 50%;
-      right: 12px;
       transform: translateY(-50%);
+      right: 12px;
       width: 42px;
       height: 43px;
+    }
+
+    .icon-completed {
     }
   }
 

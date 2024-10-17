@@ -15,11 +15,13 @@ export default function TasksListItem(
         name, time, selected: !selected, completed, id
     });
 
+    const isCompleted = () => (completed ? styles.completed : '');
+
     const isSelected = () => (selected ? styles.selected : '');
 
     return (
         <li
-            className={`${styles.TasksListItem} ${isSelected()}`}
+            className={`${styles.TasksListItem} ${isSelected()} ${isCompleted()}`}
             onClick={clickItem}
         >
             <h3>{ name }</h3>

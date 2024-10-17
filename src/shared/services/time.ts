@@ -2,9 +2,14 @@ export function convertMilisecondsToString(time: number): string {
     const hours = Math.floor(time / 3600000);
     const minutes = Math.floor((time / 60000) % 60);
     const seconds = Math.floor((time / 1000) % 60);
-    const addZero = (num: number): string => (num < 10 ? '0' + num : num.toString());
 
-    return `${addZero(hours)}:${addZero(minutes)}:${addZero(seconds)}`;
+    return `${
+        String(hours).padStart(2, '0')
+    }:${
+        String(minutes).padStart(2, '0')
+    }:${
+        String(seconds).padStart(2, '0')
+    }`;
 }
 
 export function convertStringToMiliseconds(time: string): number {

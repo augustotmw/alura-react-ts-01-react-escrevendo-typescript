@@ -6,10 +6,10 @@ import {AppButtonProps} from "./appButton.interfaces";
 export class AppButton extends React.Component<AppButtonProps, {}> {
 
     render() {
-        const { type = 'button'} = this.props;
+        const { type = 'button', onClick = ()=>{}} = this.props;
 
         return (
-            <button {...{type}} className={styles.btn}>{ this.props.children }</button>
+            <button {...{type, onClick} } className={styles.btn}>{ this.props.children }</button>
         );
     }
 }
